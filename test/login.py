@@ -8,6 +8,6 @@ def login():
         print('paso el login')
         return ' Se hizo login correctamente', token
     except Exception as e:
-        print('No se paso el login')
+        print('No se paso el login', str(e))
         return 'No se realizo el login'
 
