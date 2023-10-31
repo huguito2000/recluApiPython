@@ -1,6 +1,6 @@
 import requests
-from objetos.funciones import sendPut, sentPatch, sentPostSinBody
-from objetos.registro.obj_registro import url, myBody, dataCheckEmail, dataRecruite1, nombres, company, urlCrearPass, urlEmailCheck, urlRecruiter, urlCompany
+from objetos.funciones import sendPut, sendPatch, sendPostSinBody
+from objetos.obj_registro import url, myBody, dataCheckEmail, dataRecruite1, nombres, company, urlCrearPass, urlEmailCheck, urlRecruiter, urlCompany
 #Paso1
 #registry Se mandan los datos de registro y se obtiene el token
 req = requests.post(url, json=myBody)
@@ -24,24 +24,24 @@ sendPut(urlCrearPass, headers, 200)
 print('se mando la contraseña')
 
 # se manda un PATCH con el recruiter y la data1
-sentPatch(urlRecruiter, headers, dataRecruite1, 200)
+sendPatch(urlRecruiter, headers, dataRecruite1, 200)
 print('se mando el recruiter1 del registro')
 
 #paso2 envio de codigo
 #se manda el check email
-sentPostSinBody(urlEmailCheck + code, 200)
+sendPostSinBody(urlEmailCheck + code, 200)
 print('se manda el check email')
 
 #se manda recruiter PATCH
-sentPatch(urlRecruiter, headers, dataCheckEmail, 200)
+sendPatch(urlRecruiter, headers, dataCheckEmail, 200)
 print('se mando recruiter check email')
 
 #paso3 formulario
 #se manda PATCH del formulario de nombre
-sentPatch(urlRecruiter, headers, nombres, 200)
+sendPatch(urlRecruiter, headers, nombres, 200)
 print('se manda formulario nombre')
 
 #se manda PATCH del formulario de compañia
-sentPatch(urlCompany, headers, company, 200)
+sendPatch(urlCompany, headers, company, 200)
 print('se manda la compañia')
 

@@ -16,9 +16,9 @@ myBody = {
     "acceptCookies": True
 }
 
-urlCrearPass = 'https://pre.micros.involverh.com.mx/notification/registry/create-pass?password=Abcd.1234'
+urlCrearPass = base + 'notification/registry/create-pass?password=Abcd.1234'
 
-urlRecruiter = 'https://pre.micros.involverh.com.mx/user/recruiter'
+urlRecruiter = base + 'user/recruiter'
 dataRecruite1 = data = [
 	{
     	"op": "replace",
@@ -27,7 +27,7 @@ dataRecruite1 = data = [
 	}
 ]
 
-urlEmailCheck: str = str('https://pre.micros.involverh.com.mx/notification/session-aux/check-email?email=' + correo + '&code=')
+urlEmailCheck: str = str(base + 'notification/session-aux/check-email?email=' + correo + '&code=')
 
 dataCheckEmail = [
     {
@@ -60,7 +60,7 @@ nombres = [
     }
 ]
 
-urlCompany = 'https://pre.micros.involverh.com.mx/user/company'
+urlCompany = base + 'user/company'
 company = [
     {
         "op": "replace",
