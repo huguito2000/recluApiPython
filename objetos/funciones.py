@@ -1,4 +1,5 @@
 #pip3 install requests
+import os
 import random
 
 import requests
@@ -37,7 +38,8 @@ def sendPut(url, headers, codeHttp):
 
 def sendPutBody(url, headers, myBody, codeHttp):
     try:
-        req = requests.put(url, headers=headers, json=myBody )
+        req = requests.put(url, headers=headers, json=myBody)
+        print(req.content)
         print('PUT status: ' + str(req.status_code))
         assert req.status_code == codeHttp
     except Exception as e:
@@ -45,6 +47,12 @@ def sendPutBody(url, headers, myBody, codeHttp):
 
 def sendPostSinBody(url, codeHttp):
     req = requests.post(url)
+    print('Post Sin body status: ' + str(req.status_code))
+    print(req.json())
+    assert req.status_code == codeHttp
+
+def sendPostHeadersSinBody(url,headers, codeHttp):
+    req = requests.post(url, headers=headers)
     print('Post Sin body status: ' + str(req.status_code))
     print(req.json())
     assert req.status_code == codeHttp
@@ -78,3 +86,35 @@ def apellidos():
     aleatorio = random.choice(apellido)
     print(aleatorio)
     return aleatorio
+
+ruta = ''
+def getRuta():
+    imgRuta = os.getcwd().split('/')
+    print(len(imgRuta))
+    baseImg = ''
+    for i in range(len(imgRuta)):
+        print(imgRuta[i])
+        baseImg = baseImg + str(imgRuta[i]) + '/'
+    return baseImg
+
+def foto():
+    global ruta
+    baseImg = getRuta()
+    imagen = random.randint(0, 11)
+    print(imagen)
+    ruta = (baseImg +'archivos/img/' + str(imagen) + '.jpeg')
+    print(ruta)
+    return ruta
+
+def subirArchivo(rutaArchivo, url,headers, codeHttp):
+    files = {'file': open(rutaArchivo, 'rb')}
+    req = requests.post(url, headers=headers, files=files)
+    print('post status: ' + str(req.status_code))
+    print(req.text)
+    assert req.status_code == codeHttp
+
+def eliminarFoto(url,headers, codeHttp):
+    req = requests.delete(url, headers=headers)
+    print('delete status: ' + str(req.status_code))
+    print(req.text)
+    assert req.status_code == codeHttp
