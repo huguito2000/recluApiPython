@@ -1,13 +1,20 @@
 import requests
-from objetos.funciones import sendPostHeaders
-from objetos.obj_clientes import urlCliente, cliente
-from test.login import login
+import json
 
-head, token = login()
+from objetos.obj_clientes import newClient, eliminarCliente
+from test.login import loginValido
+
+#se hace login y se optiene el token
+respuesta, token, resultado = loginValido()
 print('el token es:' + token)
 headers = {
     'Authorization': f'Bearer {token}'
 }
-sendPostHeaders(urlCliente, headers, cliente, 200)
 
+#se crea un nuevo cliente y se obtiene el clientId
+clientId = newClient(headers)
+
+#se elimina el nuevo cliente creado
+
+eliminarCliente(clientId, headers)
 

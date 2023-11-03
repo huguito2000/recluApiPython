@@ -1,5 +1,7 @@
-from objetos.funciones import base
-urlCliente = base+'user/client'
+from objetos.funciones import base, sendPostHeaders, sendDelete
+from test.login import loginValido
+
+urlCliente = base + 'user/client'
 
 cliente = {
     "name": "involver",
@@ -14,3 +16,16 @@ cliente = {
     },
     "employees": "DE51A250"
 }
+
+
+def newClient(headers):
+    client = sendPostHeaders(urlCliente, headers, cliente, 200)
+    clientId = client['clientId']
+    print('se creo el cliente ' + clientId)
+    return clientId
+
+
+def eliminarCliente(clientId, headers):
+    myBody: list = [clientId]
+    sendDelete(urlCliente, headers, myBody, 200)
+    print('se elimino el cliente')

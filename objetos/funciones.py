@@ -1,4 +1,6 @@
 #pip3 install requests
+import random
+
 import requests
 
 base = 'https://pre.micros.involverh.com.mx/'
@@ -33,6 +35,14 @@ def sendPut(url, headers, codeHttp):
     except Exception as e:
         print(e)
 
+def sendPutBody(url, headers, myBody, codeHttp):
+    try:
+        req = requests.put(url, headers=headers, json=myBody )
+        print('PUT status: ' + str(req.status_code))
+        assert req.status_code == codeHttp
+    except Exception as e:
+        print(e)
+
 def sendPostSinBody(url, codeHttp):
     req = requests.post(url)
     print('Post Sin body status: ' + str(req.status_code))
@@ -44,3 +54,27 @@ def sendPostHeaders(url, headers, myBody, codeHttp):
     print('Patch status: ' + str(req.status_code))
     print(req.json())
     assert req.status_code == codeHttp
+    resultado = req.json()
+    return resultado
+
+def sendDelete(url, headers, myBody, codeHttp):
+    req = requests.delete(url, headers=headers, json=myBody)
+    print('Patch status: ' + str(req.status_code))
+    print(req.json())
+    assert req.status_code == codeHttp
+    resultado = req.json()
+    return resultado
+
+def nombres():
+    Nombres = ['Hugo', 'Dennis', 'Miguel', 'Gabriel', 'Javi', 'Lucio', 'Jesus', 'Victor', 'Abraham', 'Juan', 'Rafael', 'Ramiro', 'Pedro', 'Julian', 'Valentin']
+    aleatorio = random.choice(Nombres)
+    print(aleatorio)
+    return aleatorio
+
+def apellidos():
+    apellido = ['Álvarez', 'Castillo', 'De León', 'Díaz', 'Espinoza', 'Fernández', 'García', 'Salazar', 'Santana',
+                 'Zambrano', 'Perez', 'Rodriguez', 'Martinez', 'Garcia', 'Torres', 'Olivera', 'Lopez', 'Sanchez',
+                 'Ascarragan', 'Hernandez']
+    aleatorio = random.choice(apellido)
+    print(aleatorio)
+    return aleatorio
