@@ -1,5 +1,5 @@
 from objetos.funciones import base, sendPut
-from test.login import login
+from test.login1 import login
 
 
 urlPass = base + 'notification/login/change-password?newPassword=Abcd.1234'

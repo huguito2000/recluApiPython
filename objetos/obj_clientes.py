@@ -1,5 +1,5 @@
 from objetos.funciones import base, sendPostHeaders, sendDelete
-from test.login import loginValido
+from test.login1 import loginValido
 
 urlCliente = base + 'user/client'
 

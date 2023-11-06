@@ -59,7 +59,7 @@ def sendPostHeadersSinBody(url,headers, codeHttp):
 
 def sendPostHeaders(url, headers, myBody, codeHttp):
     req = requests.post(url, headers=headers, json=myBody)
-    print('Patch status: ' + str(req.status_code))
+    print('Post status: ' + str(req.status_code))
     print(req.json())
     assert req.status_code == codeHttp
     resultado = req.json()
@@ -93,7 +93,7 @@ def getRuta():
     print(len(imgRuta))
     baseImg = ''
     for i in range(len(imgRuta)):
-        print(imgRuta[i])
+        print(imgRuta[i - 1])
         baseImg = baseImg + str(imgRuta[i]) + '/'
     return baseImg
 
