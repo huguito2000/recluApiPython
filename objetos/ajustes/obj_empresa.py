@@ -1,8 +1,6 @@
-import os
+from objetos.funciones import base, sendPatch
 
-from objetos.funciones import base, foto, subirArchivo, sendPatch
-
-url = 'https://pre.micros.involverh.com.mx/user/company'
+url = base + 'user/company'
 myBody = [
     {
         "op": "replace",

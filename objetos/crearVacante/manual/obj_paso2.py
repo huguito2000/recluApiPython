@@ -1,4 +1,4 @@
-from objetos.funciones import sendPatch
+from objetos.funciones import sendPatch, base
 
 myBody = [
     {
@@ -54,6 +54,6 @@ myBody = [
     }
 ]
 def paso2(headers, vacantId):
-    url = 'https://pre.micros.involverh.com.mx/vacancy/management/' + vacantId
+    url = base + 'vacancy/management/' + vacantId
     print(url)
     sendPatch(url, headers, myBody, 200)

@@ -1,4 +1,4 @@
-from objetos. funciones import sendPostHeaders
+from objetos. funciones import sendPostHeaders, base
 
 myBody = {
     "listVacantPsychometricTestInvolve": [],
@@ -20,6 +20,6 @@ myBody = {
     ]
 }
 def paso5(headers, vacantId):
-    url = 'https://pre.micros.involverh.com.mx/vacancy/management/step5/' + vacantId
+    url = base + 'vacancy/management/step5/' + vacantId
     print(url)
     sendPostHeaders(url, headers, myBody, 200)

@@ -1,11 +1,11 @@
 from datetime import datetime
-from objetos.funciones import sendPostHeaders
+from objetos.funciones import sendPostHeaders, base
 
 now = datetime.now()
 correo = 'cand' + str(now.day) + str(now.month) + str(now.minute) + str(now.second) + '@yopmail.com'
 print(correo)
 
-url = 'https://pre.micros.involverh.com.mx/user/recruitment-team/invitation'
+url = base + 'user/recruitment-team/invitation'
 myBody = [
     {
         "email": correo,

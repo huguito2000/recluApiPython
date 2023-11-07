@@ -1,5 +1,5 @@
 import random
-from objetos.funciones import sendPostHeaders
+from objetos.funciones import sendPostHeaders, base
 
 
 def sueldoMin():
@@ -109,7 +109,7 @@ myBody = {
 }
 
 def paso1(headers):
-    url = 'https://pre.micros.involverh.com.mx/vacancy/management'
+    url = base + 'vacancy/management'
     vacantId = sendPostHeaders(url, headers, myBody, 200)
     vacantId = vacantId['vacantId']
     return vacantId

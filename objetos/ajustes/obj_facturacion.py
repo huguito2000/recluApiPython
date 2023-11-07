@@ -1,6 +1,6 @@
-from objetos.funciones import sendPutBody
+from objetos.funciones import sendPutBody, base
 
-url = 'https://pre.micros.involverh.com.mx/management/invoice/customer'
+url = base + 'management/invoice/customer'
 myBody = {
     "legal_name": "HUGO RAFAEL RODRIGUEZ OLIVERA",
     "tax_id": "ROOH881217SZ7",

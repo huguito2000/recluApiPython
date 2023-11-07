@@ -1,4 +1,4 @@
-from objetos.funciones import sendPostHeaders
+from objetos.funciones import sendPostHeaders, base
 
 myBody = {
     "recruiters": [
@@ -11,7 +11,7 @@ myBody = {
 }
 
 def paso6(headers, vacantId):
-    url = 'https://pre.micros.involverh.com.mx/vacancy/management/step6/' + vacantId
+    url = base + 'vacancy/management/step6/' + vacantId
     print(url)
     sendPostHeaders(url, headers, myBody, 200)
 
