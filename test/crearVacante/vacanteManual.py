@@ -7,19 +7,27 @@ from objetos.crearVacante.manual.obj_paso5 import paso5
 from objetos.crearVacante.manual.obj_paso6 import paso6
 from objetos.crearVacante.manual.obj_publicar import publicar
 
-headers, recruiter = login()
+def crearVacanteManual():
+    try:
+        respuesta, headers, recruiterID = login()
 
-vacantId = paso1(headers)
+        vacantId = paso1(headers)
 
-paso2(headers, vacantId)
+        paso2(headers, vacantId)
 
-paso3(headers, vacantId)
+        paso3(headers, vacantId)
 
-paso4(headers, vacantId)
+        paso4(headers, vacantId)
 
-paso5(headers, vacantId)
+        paso5(headers, vacantId)
 
-paso6(headers, vacantId)
+        paso6(headers, vacantId)
 
-publicar(headers, vacantId)
+        publicar(headers, vacantId)
+        print('se crea vacante manual')
+        return ' se crea vacante manual'
+    except Exception as e:
+        print('no se creo la vacante manual')
+        return 'no se creo la vacante manual'
+
 
